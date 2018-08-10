@@ -9,7 +9,7 @@ DECLARE @Date varchar(20) = (SELECT REPLACE(CONVERT(varchar(19), GETDATE(), 21),
 DECLARE @Joost varchar(128) = 'C:\Users\admin\OneDrive\Environment\SQL Backup\Joost ' + @Date + '.bak'
 
 -- Backup files
-BACKUP DATABASE [Joost] TO DISK = @Joost WITH DIFFERENTIAL,
+BACKUP DATABASE [Joost] TO DISK = @Joost WITH DESCRIPTION = N'Scripted backup',
 	NOFORMAT,
 	NOINIT,
 	NAME = N'Joost-Full Database Backup',
@@ -20,7 +20,7 @@ BACKUP DATABASE [Joost] TO DISK = @Joost WITH DIFFERENTIAL,
 
 BACKUP LOG [Joost] TO DISK = @Joost WITH NOFORMAT,
 	NOINIT,
-	NAME = N'Joost-Full Database Backup',
+	NAME = N'Joost-Full Log Backup',
 	SKIP,
 	NOREWIND,
 	NOUNLOAD,
