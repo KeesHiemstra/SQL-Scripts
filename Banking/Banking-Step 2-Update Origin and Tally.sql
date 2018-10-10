@@ -129,7 +129,9 @@ WHERE [TallyName] IS NULL
 		'Albert Heijn 1142 GORINCHEM NLD',
 		'ZEEMAN GORINCHEM PIAZZ GORINCHEM',
 		'Lukoil HOOGBLOKLAND NLD',
-		'Action 1364 Gorinchem NLD'
+		'Action 1364 Gorinchem NLD',
+		'St. A. Apo Nwegein NIEUWEGEIN',
+		'Cafetaria Mac Roy NIEUWEGEIN NLD'
 		)
 
 UPDATE Bank
@@ -171,7 +173,12 @@ WHERE [TallyName] IS NULL
 		OR [Text] LIKE '%Zaadhandel van der Wal van der Wal Zaadhandel BV%'
 		OR [Text] LIKE '%DIERENKL.SOESTERBERG SOE,PAS955%'
 		OR [Text] LIKE '%Kruidvat 6127 SOESTERBER,PAS955%'
-		)
+		OR [Text] LIKE '%ZEEMAN ZEIST VOORHEUVE Z,PAS955%'
+		OR [Text] LIKE '%Action 1068 Zeist,PAS955%'
+		OR [Text] LIKE '%Pets Place XL Zeist - ZE,PAS955%'
+		OR [Text] LIKE '%Xenos Soest 0178 SOEST,PAS955%'
+		OR [Text] LIKE '%EKOPLAZA SOEST SOEST,PAS955%'
+ 		)
 
 UPDATE Bank
 SET [TallyName] = 'Boodschappen Soesterberg'
@@ -181,6 +188,30 @@ WHERE [TallyName] IS NULL
 	AND (
 		[Text] LIKE '%Zaadhandel van der Wal van der Wal Zaadhandel BV%'
 		)
+
+UPDATE Bank
+SET [TallyName] = 'Boodschappen Soesterberg'
+WHERE [TallyName] IS NULL
+	AND [Account] = 'NL54ABNA0574446974'
+	AND [Mutation] = 'Online bankieren'
+	AND [CounterAccount] = 'NL29INGB0009690283'
+	AND [Name] = 'Dierenkliniek Soesterberg'
+
+UPDATE Bank
+SET [TallyName] = 'Boodschappen Soesterberg'
+WHERE [TallyName] IS NULL
+	AND [Account] = 'NL54ABNA0574446974'
+	AND [Mutation] = 'Online bankieren'
+	AND [CounterAccount] = 'NL48DEUT0319887774'
+	AND [Name] = 'MultiSafepay'
+
+UPDATE Bank
+SET [TallyName] = 'Boodschappen Soesterberg'
+WHERE [TallyName] IS NULL
+	AND [Account] = 'NL54ABNA0574446974'
+	AND [Mutation] = 'Online bankieren'
+	AND [CounterAccount] = 'NL30ABNA0524590958'
+	AND [Name] = 'STG MOLLIE PAYMENTS'
 
 UPDATE Bank
 SET [TallyName] = 'Boodschappen Soesterberg'
@@ -213,6 +244,16 @@ WHERE [TallyName] IS NULL
 
 UPDATE Bank
 SET [Origin] = 'Gezamenlijk',
+	[TallyName] = 'Energie Meerkerk'
+WHERE [TallyName] IS NULL
+	AND [Account] = 'NL54ABNA0574446974'
+	AND [Mutation] = 'Online bankieren'
+	AND [CounterAccount] = 'NL37INGB0003157965'
+	AND [Text] LIKE '%4231 ZA, 7%'
+	AND [Amount] > 0
+
+UPDATE Bank
+SET [Origin] = 'Gezamenlijk',
 	[TallyName] = 'Energie Soesterberg'
 WHERE [TallyName] IS NULL
 	AND [Account] = 'NL54ABNA0574446974'
@@ -228,6 +269,15 @@ WHERE [TallyName] IS NULL
 	AND [Mutation] = 'Incasso'
 	AND [CounterAccount] = 'NL97RABO0140917969'
 	AND [Text] LIKE '%ADRES: 3769TA13%'
+
+UPDATE Bank
+SET [Origin] = 'Gezamenlijk',
+	[TallyName] = 'Energie Soesterberg'
+WHERE [TallyName] IS NULL
+	AND [Account] = 'NL54ABNA0574446974'
+	AND [Mutation] = 'Incasso'
+	AND [CounterAccount] = 'NL97RABO0140917969'
+	AND [Text] LIKE '%ADR ES: 3769TA13%'
 
 UPDATE Bank
 SET [Origin] = 'Gezamenlijk',
@@ -282,6 +332,15 @@ WHERE [TallyName] IS NULL
 	AND [Account] = 'NL54ABNA0574446974'
 	AND [Mutation] = 'Online bankieren'
 	AND [CounterAccount] = 'NL91INGB0651280923'
+	AND [Amount] > 0
+
+UPDATE Bank
+SET [Origin] = 'Inkomen gezamenlijk',
+	[TallyName] = 'Inkomen huis'
+WHERE [TallyName] IS NULL
+	AND [Account] = 'NL54ABNA0574446974'
+	AND [Mutation] = 'Online bankieren'
+	AND [CounterAccount] = 'NL94RABO0162173342'
 	AND [Amount] > 0
 
 UPDATE Bank
@@ -390,6 +449,22 @@ WHERE [TallyName] IS NULL
 	AND [Name] = 'GENERALI SCHADEVERZEKERI'
 
 UPDATE Bank
+SET [Origin] = 'Gezamenlijk',
+	[TallyName] = 'Verzekering opstal'
+WHERE [TallyName] IS NULL
+	AND [Account] = 'NL54ABNA0574446974'
+	AND [Mutation] = 'Incasso'
+	AND [Name] = 'ASR SCHADEVERZEKERING NV'
+
+UPDATE Bank
+SET [Origin] = 'Gezamenlijk',
+	[TallyName] = 'Verzekering opstal'
+WHERE [TallyName] IS NULL
+	AND [Account] = 'NL54ABNA0574446974'
+	AND [Mutation] = 'Incasso'
+	AND [Name] = 'ASR SCHADEVERZEKERING'
+
+UPDATE Bank
 SET [Origin] = 'Persoonlijk',
 	[TallyName] = 'Verzekering WA'
 WHERE [TallyName] IS NULL
@@ -397,6 +472,15 @@ WHERE [TallyName] IS NULL
 	AND [Mutation] = 'Incasso'
 	AND [Name] = 'Den Ouden Assurantien BV'
 	AND [Text] LIKE '%Aansprakelijkheid particulier%'
+
+UPDATE Bank
+SET [Origin] = 'Persoonlijk',
+	[TallyName] = 'Verzekering WA'
+WHERE [TallyName] IS NULL
+	AND [Account] = 'NL87INGB0003992526'
+	AND [Mutation] = 'Incasso'
+	AND [Name] = 'Den Ouden Assurantien BV'
+	AND [Text] LIKE '%Zekerheidspakket Particulieren%'
 
 UPDATE Bank
 SET [Origin] = 'Persoonlijk',
