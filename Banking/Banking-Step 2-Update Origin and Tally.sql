@@ -131,7 +131,13 @@ WHERE [TallyName] IS NULL
 		'Lukoil HOOGBLOKLAND NLD',
 		'Action 1364 Gorinchem NLD',
 		'St. A. Apo Nwegein NIEUWEGEIN',
-		'Cafetaria Mac Roy NIEUWEGEIN NLD'
+		'Cafetaria Mac Roy NIEUWEGEIN NLD',
+		'Albert Heijn 1439 WOERDEN NLD',
+		'Van der Leeden MEERKERK NLD',
+		'Action 1315 Nieuwegein NLD',
+		'ALBERT HEIJN 2202 UTRECHT NLD',
+		'CCV*JUWELIER PA STIFT LEERDAM',
+		'HEMA LEERDAM LEERDAM NLD'
 		)
 
 UPDATE Bank
@@ -139,7 +145,8 @@ SET [TallyName] = 'Boodschappen Meerkerk'
 WHERE [TallyName] IS NULL
 	AND [Account] = 'NL87INGB0003992526'
 	AND [Mutation] = 'Geldautomaat'
-	AND [Name] IN ('RABO ALBLASS-VIJFH NLD'
+	AND [Name] IN ('RABO ALBLASS-VIJFH NLD',
+		'RABO ALBLASSERWAAR NLD'
 		)
 
 UPDATE Bank
@@ -175,6 +182,7 @@ WHERE [TallyName] IS NULL
 		OR [Text] LIKE '%Kruidvat 6127 SOESTERBER,PAS955%'
 		OR [Text] LIKE '%ZEEMAN ZEIST VOORHEUVE Z,PAS955%'
 		OR [Text] LIKE '%Action 1068 Zeist,PAS955%'
+		OR [Text] LIKE '%Action 1231 Amersfoort,PAS955%'
 		OR [Text] LIKE '%Pets Place XL Zeist - ZE,PAS955%'
 		OR [Text] LIKE '%Xenos Soest 0178 SOEST,PAS955%'
 		OR [Text] LIKE '%EKOPLAZA SOEST SOEST,PAS955%'
@@ -226,6 +234,20 @@ WHERE [TallyName] IS NULL
 	AND [Account] = 'NL54ABNA0574446974'
 	AND [Mutation] = 'Online bankieren'
 	AND [Text] LIKE '%zooplus AG%'
+
+UPDATE Bank
+SET [TallyName] = 'Boodschappen Soesterberg'
+WHERE [TallyName] IS NULL
+	AND [Account] = 'NL54ABNA0574446974'
+	AND [Mutation] = 'Online bankieren'
+	AND [Text] LIKE '%Zeeman%'
+
+UPDATE Bank
+SET [TallyName] = 'Boodschappen Soesterberg'
+WHERE [TallyName] IS NULL
+	AND [Account] = 'NL54ABNA0574446974'
+	AND [Mutation] = 'Online bankieren'
+	AND [Text] LIKE 'BITIBA%'
 
 UPDATE Bank
 SET [TallyName] = 'Boodschappen Soesterberg'
@@ -367,6 +389,14 @@ WHERE [TallyName] IS NULL
 	AND [Account] = 'NL54ABNA0574446974'
 	AND [Mutation] = 'Incasso'
 	AND [CounterAccount] = 'NL46RABO0141300000'
+
+UPDATE Bank
+SET [Origin] = 'Gezamenlijk',
+	[TallyName] = 'Support actie'
+WHERE [TallyName] IS NULL
+	AND [Account] = 'NL78INGB0005056584'
+	AND [Mutation] = 'Incasso'
+	AND [CounterAccount] = 'NL28INGB0000002329'
 
 UPDATE Bank
 SET [Origin] = 'Gezamenlijk',
